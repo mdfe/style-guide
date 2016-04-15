@@ -58,6 +58,7 @@
     -1 == resultOfOperation() || die();
     ```
 3. 代码块和方法的左大括号应该放在上一行行末，而不是另起一行
+
     ```js
     // bad
     function CSharpStyle() 
@@ -70,6 +71,7 @@
     }
     ```
 4. 如果通过 if 和 else 使用多行代码块，应该把 else 放在 if 代码块关闭括号的同一行。try/catch 同理
+
     ```js
     // bad
     if(a > b) {
@@ -108,6 +110,7 @@
     };
     ```
 9. 长方法调用折行时，应该将 . 放在下一行。进行链式调用时，可以使用一定的缩进表示调用的对象和层级
+
     ```js
     //good
     $('body').hide()
@@ -118,6 +121,7 @@
       .show();
     ```
 10. 比较长的标识符或者数值, 不应该为了让代码好看些而手工对齐
+
     ```js
     //bad
     var a             = 1;
@@ -134,22 +138,26 @@
 1. 声明变量必须加上 var 关键字
 2. 变量名必须含义明确，不应该使用单字母或难以理解的变量名。含义十分明确的情况下，短循环中可以使用实体首字母命名变量。应该避免错误的单词拼写，对已有的单词拼写错误在可控的情况下应该进行纠正
 3. 普通（非模块）变量名、对象的属性名、非构造函数的方法名必须使用小驼峰(camelCase)命名法
+
      ```
      var variable;
      var obj = {a: 1};
      function someFunc() {}
      ```
 4. 类和构造函数必须使用大驼峰(PascalCase)命名法；模块名可以使用大驼峰命名法
+
     ```
     function Constructor(){}
     var inst = new Constructor();
     ```
 5. 常量/枚举名必须使用全大写，单词间以下划线分隔
+
     ```
     var CHAT_SERVER = '';
     ```
 6. 不应该暴露私有变量。外除 lodash 库和用来保存 this 引用的 _this 外，变量和属性名禁止以下划线开头
 7. 保存 this 的引用时，变量名应该使用 this 所指代对象的有含义的名字。如果实在很难表达，可以使用 _this、self 或 that 
+
     ```js
     //not so good
     posts.forEach(function() {
@@ -185,6 +193,7 @@
 #### 类型
 ##### 基本类型
 1. 应该使用原始值，不应该包装基本类型
+
     ```js
     //bad
     var box = new String('原始值');
@@ -192,6 +201,7 @@
 
 ##### 对象
 1. 应该使用字面值创建对象
+
     ```js
     //bad
     var obj = new Object();
@@ -201,6 +211,7 @@
     var obj = {};
     ```
 2. 禁止使用保留字作为键，应该使用同义词(而不是同音词)替换
+
     ```js
     //bad
     var obj = {class: 'post'};
@@ -211,6 +222,7 @@
     var obj = {type: 'post'};
     ```
 3. 应该使用 . 访问对象的属性，除非是通过变量，或键名中有特殊字符
+
     ```js
     //bad
     var a = obj['a'];
@@ -224,6 +236,7 @@
 
 ##### 数组
 1. 应该使用字面值创建数组
+
     ```js
     //bad
     var arr = new Array();
@@ -233,6 +246,7 @@
     var arr = [];
     ```
 2. 应该使用 push 方法向数组添加元素，而不是直接赋值
+
     ```js
     //bad
     arr[arr.length] = 1;
@@ -242,6 +256,7 @@
     arr.push(1);
     ```
 3. 应该使用 slice 方法进行数组拷贝，在 ES6 中应该使用 ...
+
     ```js
     //good
     var clone = arr.slice();
@@ -252,6 +267,7 @@
 
 ##### 字符串
 1. 应该使用单引号表示字符串，除非字符串里有单引号
+
     ```js
     //bad
     var str = "How are you";
@@ -267,6 +283,7 @@
 3. 对于 HTML 模版，应该使用模版引擎或 ES6 模版字符串进行渲染，而不是拼接字符串。3 行以下包括变量、10 行以下不包含变量的 html 拼接不要求使用模版引擎。
 4. 应该使用 doT 模板引擎，并使用默认语法
 5. 如果一定要拼接 HTML 字符串，应该注意对变量进行 HTML 实体转码
+
     ```js
     //bad
     var html = '<div>' + htmlEncode(data.content) + '</div>';
@@ -282,6 +299,7 @@
 
 ##### 函数
 1. 禁止将函数声明放在非函数代码块(if、while 等)中，而是应该将其赋给一个变量
+
     ```js
     //bad
     if(a > 0) {
@@ -298,6 +316,7 @@
     ```
 2. 禁止将参数命名为 arguments
 3. 函数返回多个值时，应该使用对象而不是数组
+
     ```js
     //bad
     function multiReturnValue() {
@@ -313,6 +332,7 @@
 4. 可以使用函数声明代替函数表达式
 
     > 抛出异常时可以比较容易追踪到方法名
+
     ```js
     // ok
     var someFunc = function() {};
@@ -321,6 +341,7 @@
     ```
 5. 函数可以返回 this 来方便链式调用。jQuery 组件应该返回 this
 6. 使用闭包时应该注意避免产生循环引用
+
     ```js
     //bad
     function foo(element, a, b) {
@@ -346,6 +367,7 @@
 2. 应该了解不同类型的布尔类型转换方式，在 if 和三元运算符中使用较短的表达方式
 3. 应该避免不必要的判断代码
 4. 禁止在判断语句中进行赋值操作。应该避免 yoda 表达
+
     ```js
     //bad
     if (a = 1) {}
@@ -385,6 +407,7 @@
 1. 禁止对内置对象进行原型修改
 2. 应该避免使用老代码中顶级对象的原型扩展方法，使用工具方法代替
 3. 应该优先使用工具库(lodash,jQuery)中的方法，缺少相关方法时再自行实现
+
     ```js
     //bad
     String.prototype.trim = function(str) {...}
@@ -411,6 +434,7 @@
 1. 应该将 JavaScript 标签都放在外部文件中进行引用
 2. 不应该内部引用 JavaScript
 3. 禁止内联引用 JavaScript
+
     ```js
     //forbidden
     <img onclick="javascript:someFunc(this);">
@@ -426,6 +450,7 @@
 要求后端返回的数据遵守下列规范
 1. 后端返回数据必须是 JSON 格式，并遵循变量命名规范
 2. 如果数据表示特定的类型，则它必须是对应的类型而不是字符串
+
     ```js
     //bad
     {"allowDown": "ok","commentCount":"1"}
@@ -439,6 +464,7 @@
 ### jQuery
 1. jQuery 对象的变量名应该使用 $ 开头
 2. 应该缓存 jQuery 选择结果，或使用链式调用避免不必要的元素查询
+
     ```js
     //bad
     $('div').show();
@@ -453,6 +479,7 @@
     $('div').show().hide();
     ```
 3. 应该避免无用的选择。如果不需要用到父元素，应该使用单个选择器一次选中目标元素
+
     ```js
     //bad
     $('.parent #id').hide();
@@ -466,6 +493,7 @@
     $parent.find('#id').hide();
     ```
 4. 如果需要在重复元素上绑定相同或类似的事件，应该使用事件委托，绑定在共同的父元素上
+
     ```js
     //bad
     $('ul li').on('click', function() {});
@@ -475,6 +503,7 @@
     $('ul').on('click', 'li', function() {});
     ```
 5. 绑定到 #container 或更上层元素(body、document、window 等)上的事件必须有表示对应模块的命名空间
+
     ```js
     //bad
     $('body').on('click', function() {});
@@ -486,6 +515,7 @@
 6. 在事件中传递数据时，应该使用对象而不是原始值
 
     > 方便后期修改
+
     ```
     $(document).on('CUSTOM_EVENT', function(evt, arg) {});
     //good
@@ -494,6 +524,7 @@
     $(document).trigger('CUSTOM_EVENT', 1)
     ```
 7. 不应该直接拼接 ajax 请求参数，应该将其作为参数传给 jQuery。如果一定要手工拼接参数，需要注意使用 encodeURIComponent 进行转码
+
     ```js
     //forbidden
     $.get('ajaxpage.aspx?a=' + a);
@@ -505,6 +536,7 @@
     $.get('ajaxpage.aspx', {a: a});
     ```
 8. 通过类名选择元素时应该添加有意义的钩子类，而不是样式类
+
     ```js
     //bad
     // <a class="ThemeColor3">动态</a>
@@ -523,6 +555,7 @@
 ### ES 2016 (ES6)
 1. const > let > var，应该尽量使用 const 和 let 代替 var；相同的声明方法应该放在一起
 2. 声明对象中的属性和方法时应该使用简写，并将属性的简写放在前面
+
     ```js
     //bad
     var a = 1;
@@ -535,11 +568,13 @@
     var obj = {a, b: 2};
     ```
 3. 可以使用对象和数组的解构赋值
+
     ```js
     //good
     var {a, b} = obj;
     ```
 4. 应该避免使用 arguments 对象，而是使用 ... 语法
+
     ```js
     //good
     function(...args) {
@@ -547,6 +582,7 @@
     }
     ```
 5. 应该使用参数默认值，而非在方法中判断
+
     ```js
     //bad
     function(a, b) {
@@ -559,6 +595,7 @@
     ```
 6. 使用参数默认值时应该避免副作用
 7. 使用函数表达式时，应该尽量使用箭头函数，在方法体不长时应该省略大括号和 return
+
     ```js
     //good
     callback(obj => console.log(obj));
@@ -571,6 +608,7 @@
 1. 应该使用 jsdoc 格式进行注释，每个模块、方法声明、方法参数、公开变量、上都应该有注释。jQuery 参数暂时使用单行注释
 2. 应该使用 // 进行单行注释
 3. 应该使用 FIXME 表示问题，TODO 表示解决方案或代办事项
+
     ```js
     //good
     //FIXME: someFunc 未定义时会出异常
@@ -588,6 +626,7 @@
 * 每个文件中的缩进必须统一。应该使用 4 空格缩进，老代码应该遵循原来的缩进
 * 除 br、 hr、 img、 input、 link、 meta 外，其他标签必须闭合
 * 属性应该使用双引号
+
     ```html
     //bad
     <a href='http://mingdao.com'></a>
@@ -603,6 +642,7 @@
 ### 语言规范
 * 每个文件中的缩进必须统一。应该使用 2 空格缩进，老代码应该遵循原来的缩进
 * 类名应该使用小驼峰命名法则。如果使用 BEM 命名法，Block 可以使用大驼峰命名，Block 和 Element 之间使用 `-` 连接，Element 和 Modifier 之间使用 `--` 连接。禁止使用下划线
+
     ```css
     /* good */
     .mdDialog .confirmButton.disabled {}
@@ -610,6 +650,7 @@
     .MdDialog-confirmButton--disabled {}
     ```
 * 类名应该含义明确，命名应该显示出语义而不是具体的呈现形式
+
     ```css
     /* bad */
     .red {
@@ -635,6 +676,7 @@
 * 规则声明的左大括号 { 后应该换行，前面应该加上一个空格
 * 规则声明的右大括号 } 应该独占一行
 * 分割选择器的逗号前不应该有空格，后面应该加上一个空格或换行
+
     ```css
     /* good */
     .shortNameA, .shortNameB {
@@ -647,6 +689,7 @@
     }
     ```
 * 每个属性必须写在单独的一行，冒号后面空一格
+
     ```css
     /* bad */
     body {font-size:12px;}
@@ -658,6 +701,7 @@
     }
     ```
 * 每个模块应该有顶级 class 作为命名空间
+
     ```css
     /* bad */
     .message{
