@@ -294,7 +294,7 @@
     //not so good
     var html = `<div>${htmlEncode(data.content)}</div>`;
     //good
-    var html = doT.template('<div>{{= it.content}}</div>')(data);
+    var html = doT.template('<div>{{! it.content}}</div>')(data);
     ```
 
 ##### 函数
