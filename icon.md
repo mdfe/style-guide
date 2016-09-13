@@ -1,3 +1,5 @@
+# Web 字体图标规范
+
 * 字体图标使用 IcoMoon 管理，Web 端的 project 为 `Mingdao Web`。由产品和 UI 设计师进行图标的制作、添加、命名和调整。图标更新后，由研发生成并下载放入项目中
 
 * 图标应当按图标的类型进行分组，其中 `Material Icons` 为设计师使用的图标库，`MD_Icon` 为所有暂未分组的图标。生成图标时，选择除 `Material Icons` 外的所有图标
