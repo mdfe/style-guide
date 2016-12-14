@@ -144,7 +144,7 @@
      var obj = {a: 1};
      function someFunc() {}
      ```
-4. 类和构造函数必须使用大驼峰(PascalCase)命名法；模块名可以使用大驼峰命名法
+4. 类和构造函数必须使用大驼峰(PascalCase)命名法；React 组件应该使用大驼峰命名法；模块名可以使用大驼峰命名法
 
     ```
     function Constructor(){}
